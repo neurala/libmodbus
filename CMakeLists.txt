@@ -18,7 +18,7 @@ add_library(libmodbus
     SHARED
         ${SOURCES}
         ${HEADERS}
-        "src/win32/config.h.win32")
+        "src/config.h")
 
 target_include_directories(libmodbus
     PRIVATE
@@ -31,7 +31,9 @@ target_compile_definitions(libmodbus
         "_CRT_SECURE_NO_DEPRECATE=1"
         "_CRT_NONSTDC_NO_DEPRECATE=1")
 
-target_link_libraries(libmodbus
-    PRIVATE
-        wsock32
-        ws2_32)
+if(WIN32)
+    target_link_libraries(libmodbus
+        PRIVATE
+            wsock32
+            ws2_32)
+endif()
