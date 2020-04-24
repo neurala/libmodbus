@@ -21,7 +21,7 @@ add_library(libmodbus
         "src/config.h")
 
 target_include_directories(libmodbus
-    PRIVATE
+    PUBLIC
         "${CMAKE_CURRENT_BINARY_DIR}/src")
 
 target_compile_definitions(libmodbus
