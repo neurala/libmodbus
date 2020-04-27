@@ -18,11 +18,14 @@ add_library(libmodbus
     SHARED
         ${SOURCES}
         ${HEADERS}
-        "src/config.h")
+        "src/config.h"
+        "src/modbus-version.h")
 
 target_include_directories(libmodbus
     PUBLIC
-        "${CMAKE_CURRENT_BINARY_DIR}/src")
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/src>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
+        $<INSTALL_INTERFACE:include>)
 
 target_compile_definitions(libmodbus
     PRIVATE
@@ -37,3 +40,5 @@ if(WIN32)
             wsock32
             ws2_32)
 endif()
+
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/src/config.h" "${CMAKE_CURRENT_BINARY_DIR}/src/modbus-version.h" DESTINATION "include")
