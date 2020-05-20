@@ -42,3 +42,5 @@ if(WIN32)
 endif()
 
 install(FILES "${CMAKE_CURRENT_BINARY_DIR}/src/config.h" "${CMAKE_CURRENT_BINARY_DIR}/src/modbus-version.h" DESTINATION "include")
+
+install(TARGETS libmodbus COMPONENT runtime)
