@@ -42,6 +42,8 @@
 # include <netinet/in_systm.h>
 #endif
 
+#define HAVE_NETINET_IP_H
+
 #ifdef HAVE_NETINET_IN_H
 #include <netinet/in.h>
 #endif /* HAVE_NETINET_IN_H */
