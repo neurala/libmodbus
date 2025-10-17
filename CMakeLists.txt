@@ -14,12 +14,7 @@ set(LIBMODBUS_VERSION_MICRO 6)
 configure_file("src/win32/config.h.win32" "src/config.h" COPYONLY)
 configure_file("src/modbus-version.h.in" "src/modbus-version.h" @ONLY)
 
-add_library(libmodbus
-    SHARED
-        ${SOURCES}
-        ${HEADERS}
-        "src/config.h"
-        "src/modbus-version.h")
+add_library(libmodbus SHARED ${SOURCES} ${HEADERS})
 
 target_include_directories(libmodbus
     PUBLIC
